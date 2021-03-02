@@ -11,9 +11,7 @@
 			function enregistrer(String $username,String $mdp){
             	include ("bd.php");
            		$bdd = getBD();
-           		$idUser=$bdd->query("select count(*) from user");
-           		$idUser+=1;
-            	$bdd->query("insert into user (idUser,username,password) values ($idUser,'$username','$password')");
+            	$bdd->query("insert into user (username,password) values ('$username','$password')");
             	
 			}
 		
