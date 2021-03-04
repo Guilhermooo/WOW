@@ -1,8 +1,6 @@
 <!Index php>
 <html>
-<?php include("BD.php");
-	$bdd = getBD();
- ?>
+
  <head>
  <meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
  <link rel="stylesheet" href="styles/WOW.css"
