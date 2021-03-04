@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html>
 
 	<head>
 	
 		<meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
 		<title>WOWARENA</title>
-		<link rel="stylesheet" href="styles\style1.css"type="text/css" media="screen" />
+		<link rel="stylesheet" href="wow.css"type="text/css" media="screen" />
 
 		<?php
 
