@@ -8,6 +8,9 @@
 
 		<?php
 
+			include ("bd.php");
+           	$bdd = getBD();
+
 			function enregistrer(String $username,String $mdp){
             	include ("bd.php");
            		$bdd = getBD();
@@ -36,7 +39,22 @@
 				?>
 				"> 
 
-		<?php }	?>	
+		<?php }
+
+		$sql3->query("select username from `user` where username='$_POST['uc']'");
+		$sql2->query("select password from `user` where username='$_POST['uc']'");
+
+		if($sql3==''){?>
+
+			<meta http-equiv="refresh" content="0; URL=inscription.php">
+			<?php echo "Identifiant inexistant"	
+
+		}
+
+		if($sql2!=){?>		
+
+
+			?>	
 	</head>
 
 </html>
