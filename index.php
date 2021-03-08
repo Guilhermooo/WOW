@@ -1,15 +1,31 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 
  <head>
- <meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
- <link rel="stylesheet" href="styles/style1.css"type="text/css" media="screen" />
+ 		<meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
+ 		<link rel="stylesheet" href="styles/style1.css"type="text/css" media="screen" />
 		<title>WoW Arena</title>
+		<?php
+            include ("bd.php");
+            $bdd = getBD();
+        ?>
  </head>
  <body>
 	<h1 class="index">WoW Arena</h1>
-	<h2><a href="inscription.php">Sign Up</a></h2>
-	<h2><a href="connexion.php">Log In</a></h2>
+
+	<?php if(isset($_SESSION['utilisateur'])){
+			echo "Bonjour M.";
+			for($i = 0 ; $i < count($_SESSION['utilisateur']) ; $i++) {
+				echo $_SESSION['client'][$i]." ";
+			}	
+			echo "<br />";?>
+			<a href="deconnexion.php" > Déconnexion</a>
+		<?php }else{?>
+				<h2><a href="inscription.php" >Sign Up</a></h2>
+				<?php echo '<br />'?>
+				<h2><a href="connexion.php" > Log In</a></h2>
+			<?php } ?>
 
 	<h3>Intro</h3>
 	<p class="Intro"> 
