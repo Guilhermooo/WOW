@@ -9,7 +9,7 @@
  <body>
 	<h1 class="index">WoW Arena</h1>
 	<h2><a href="inscription.php">Sign Up</a></h2>
-	<h2><a href="Connection.php">Log In</a></h2>
+	<h2><a href="connexion.php">Log In</a></h2>
 
 	<h3>Intro</h3>
 	<p class="Intro"> 
