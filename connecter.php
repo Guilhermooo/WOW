@@ -5,7 +5,7 @@
 	<head>
 	
 		<meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
-		<title>Osos</title>
+		<title>WOW Arena</title>
 		<link rel="stylesheet" href="styles\style1.css"type="text/css" media="screen" />
 
 		<?php 
@@ -13,8 +13,8 @@
 			$bdd = getBD();
 			$mdp=$_POST['mdp'];
 			$user=$_POST['user'];
-			$sql="select password from clients where mail='$user'";
-			$sql2="select username from clients where password='$mdp'";
+			$sql="select password from user where username='$user'";
+			$sql2="select username from user where password='$mdp'";
 			$rep=$bdd->query($sql);
 			$ligne = $rep ->fetch();
 			$rep2=$bdd->query($sql2);
