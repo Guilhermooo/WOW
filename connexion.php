@@ -10,9 +10,9 @@
 	</head>
 
 	<body>
-		<form action="enregistrement.php" method="post" autocomplete="off">
-			<p>Username :<input type="text" name="uc" value="<?php echo $_GET['uc'];?>"/></p>
-			<p>Mot de passe :<input type="password" name="mdpc" value=""/></p>
+		<form action="connecter.php" method="post" autocomplete="off">
+			<p>Username :<input type="text" name="user" value="<?php echo $_GET['user'];?>"/></p>
+			<p>Mot de passe :<input type="password" name="mdp" value=""/></p>
 			<p><input type="submit" value="Envoyer"></p>
 		</form>
 
