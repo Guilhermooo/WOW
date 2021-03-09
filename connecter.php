@@ -16,22 +16,21 @@
 			$sql="select password from user where username='$user'";
 			$sql2="select username from user where password='$mdp'";
 			$rep=$bdd->query($sql);
-			$ligne = $rep ->fetch();
+			$ligne= $rep ->fetch();
 			$rep2=$bdd->query($sql2);
-			$ligne2 = $rep2 ->fetch();
+			$ligne2= $rep2 ->fetch();
 
 			if($_POST['mdp']==""||$_POST['user']==""){
-				echo "Username et/ou Mot de passe vide"?>
-				<meta http-equiv="refresh" content="0; URL=connexion.php">
+				echo "Username or Password empty"?>
+				<meta http-equiv="refresh" content="1; URL=connexion.php">
 			<?php 
-			} else{ 
-				if($ligne['mdp']==$_POST['mdp']){
-					$_SESSION['utilisateur']=array();
-					array_push($_SESSION['utilisateur'],$ligne2['username']);?>
+			}else{
+				if($ligne['password']==$_POST['mdp']){
+					$_SESSION['utilisateur']=array($ligne2['username']);?>
 					<meta http-equiv="refresh" content="0; URL=index.php">
 				<?php }
 				else{
-					echo "Username ou Mot de passe incorrect"?>
+					echo "Username or Password incorrect"?>
 					<meta http-equiv="refresh" content="1; URL=connexion.php?username=
 					<?php echo $_POST['user']?>">
 				<?php  }?>
