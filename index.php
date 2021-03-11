@@ -23,6 +23,8 @@
 				echo "Welcome ". $_SESSION['utilisateur'][0];
 				echo "<br />";?>
 				<a href="deconnexion.php" > Log Out</a>
+				<?php echo '<br />'?>
+				<a href="import.php" > Import</a>
 			<?php }else{?>
 					<h2><a href="inscription.php" >Sign Up</a></h2>
 					<?php echo '<br />'?>
