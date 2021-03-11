@@ -22,13 +22,13 @@
 		<?php if(isset($_SESSION['utilisateur'])){
 				echo "Welcome ". $_SESSION['utilisateur'][0];
 				echo "<br />";?>
-				<a href="deconnexion.php" > Log Out</a>
+				<a href="deconnexion.php">Log Out</a>
 				<?php echo '<br />'?>
-				<a href="import.php" > Import</a>
+				<a href="import.php" >Import</a>
 			<?php }else{?>
-					<h2><a href="inscription.php" >Sign Up</a></h2>
-					<?php echo '<br />'?>
-					<h2><a href="connexion.php" > Log In</a></h2>
+					<h2><a href="inscription.php">Sign Up</a></h2>
+					<?php echo '<br/>'?>
+					<h2><a href="connexion.php">Log In</a></h2>
 				<?php } ?>
 
 		<h3>Intro</h3>
