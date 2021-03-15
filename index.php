@@ -10,14 +10,19 @@
 		
 	</head>
 
-	<body>
 
 		<?php
 			include ("bd.php");
 			$bdd = getBD();
 		?>
-
-		<h1 class="index">WoW Arena</h1>
+<body>
+<div id="header">
+	<div id="logo">
+ <a href="index.php"><img src=images/HunterSurvival.png></a>
+	</div>
+</div>
+<div id="global">
+	<h1>WoW Arena</h1>
 
 		<?php if(isset($_SESSION['utilisateur'])){
 				echo "Welcome ". $_SESSION['utilisateur'][0];
@@ -32,21 +37,21 @@
 				<?php } ?>
 
 		<h3>Intro</h3>
-		<p class="Intro"> 
-			Welcome to our WoW Arena website, here you can import your players versus players game history from the addon Reflex and analyse your results.
-		</p>
+		<p class="intro"> 
+			Welcome to our WoW Arena website, here you can import your players versus players game history from the addon Reflex and analyse your results. </p>
 		</br>
-			<p class="Explications"> See what hold you back from getting your dream rating and optimize your gameplay with our advices on how to counter each class specialization.</p>
+			<p class="explications"> See what hold you back from getting your dream rating and optimize your gameplay with our advices on how to counter each class specialization.</p>
 		</br>
-			<p class="Explications"> Get defined statistics from your games to track your performances with your winrate, rating earned or loss and the compositions your are losing against.</p>
+			<p class="explications"> Get defined statistics from your games to track your performances with your winrate, rating earned or loss and the compositions your are losing against.</p>
 		</br>
-			<p class="Explications"> Those statistics can be sorted the number of games you wish, your specialization and 2v2 or 3v3.</p>
+			<p class="explications"> Those statistics can be sorted the number of games you wish, your specialization and 2v2 or 3v3.</p>
 
-		<h4>How to import</h4>
-		<p class="Import"> After loging in, you may follow our tutorial on how to import your game history and analyse your results.
+		<h4 class="import">How to import</h4>
+		<p class="import"> After loging in, you may follow our tutorial on how to import your game history and analyse your results.</p>
 
-	<p class="contact"><a href="contact/contact.html">Contact us</a></p>
+	<p class="contact"><a href="contact/contact.php">Contact us</a></p>
 
 	</body>
+</div>
 
 </html>
