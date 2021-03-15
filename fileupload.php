@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 
 	<head>
@@ -11,6 +12,13 @@
 
 	<body>
 		<?php
+		include ("bd.php");
+		function ajouter($ch1,$ch2,$ch3,$ch4,$ch5,$ch6,$ch7,$ch8,$ch9,$ch10,$ch11){
+           	$bdd = getBD();
+           	$sql="insert into import (`timestamp`, `playersNumber`, `teamComp`, `ennemyComp`, `victory`, `ratingChange`, `ennemyMMR`, `isRated`, `idMap`, `idUser`, `specialization`) values ($ch1,$ch2,'$ch3','$ch4',$ch5,$ch6,$ch7,$ch8,$ch9,$ch10,'$ch11')";
+            $bdd->query($sql);
+        }
+
 		$nomOrigine = $_FILES['monfichier']['name'];
 		$elementsChemin = pathinfo($nomOrigine);
 		$extensionFichier = $elementsChemin['extension'];
@@ -25,7 +33,31 @@
 		                                     $repertoireDestination.$nomDestination)) {
 		        echo "Le fichier temporaire ".$_FILES["monfichier"]["tmp_name"].
 		                " a été déplacé vers ".$repertoireDestination.$nomDestination;
-		    } else {
+		        $row = 1;
+				if (($handle = fopen("files/".$nomDestination, "r")) !== FALSE) {
+		   			while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+			        	$num = count($data);
+			        	$row++;
+			        	$ch1=$data[0];
+			        	$ch2=$data[2];
+			        	$ch3=$data[3];
+			        	$ch4=$data[4];
+			        	$ch5=$data[6];
+			        	$ch6=$data[11];
+			        	$ch7=$data[13];
+			        	$ch8=$data[15];
+			        	$ch9=$data[1];
+			        	$ch10=$_SESSION['utilisateur'][1];
+			        	$ch11=$data[14];
+			        	ajouter($ch1,$ch2,$ch3,$ch4,$ch5,$ch6,$ch7,$ch8,$ch9,$ch10,$ch11);
+		    		}
+		    		echo "<p> Importation réussie</p>\n";
+		    		fclose($handle);
+				}
+
+		        ?>
+		        
+		   	<?php } else {
 		        echo "Le fichier n'a pas été uploadé (trop gros ?) ou ".
 		                "Le déplacement du fichier temporaire a échoué".
 		                " vérifiez l'existence du répertoire ".$repertoireDestination;
