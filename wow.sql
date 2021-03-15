@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 11, 2021 at 03:28 PM
+-- Generation Time: Mar 15, 2021 at 02:20 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `import` (
   `timestamp` int(244) NOT NULL,
+  `playersNumber` int(11) NOT NULL,
   `teamComp` varchar(255) NOT NULL,
   `ennemyComp` varchar(255) NOT NULL,
   `victory` tinyint(1) NOT NULL,
@@ -37,7 +38,8 @@ CREATE TABLE `import` (
   `ennemyMMR` int(50) NOT NULL,
   `isRated` tinyint(1) NOT NULL,
   `idMap` int(50) NOT NULL,
-  `idUser` int(255) NOT NULL
+  `idUser` int(255) NOT NULL,
+  `specialization` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -89,9 +91,6 @@ INSERT INTO `user` (`idUser`, `username`, `password`) VALUES
 (1, 'ssss', 'qq'),
 (2, 'test', 'ee'),
 (3, 'zzz', 'dd'),
-(4, 'zuklio', 'opiumbe34'),
-(5, 'zuklio34270', 'opium'),
-(6, 'zuklio34', 'bellotbe34'),
 (7, 'haha', 'opop');
 
 --
