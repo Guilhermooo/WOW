@@ -15,10 +15,13 @@
 			$user=$_POST['user'];
 			$sql="select password from user where username='$user'";
 			$sql2="select username from user where password='$mdp'";
+			$sqlidC="Select idUser from user where username='$user'";
 			$rep=$bdd->query($sql);
 			$ligne= $rep ->fetch();
 			$rep2=$bdd->query($sql2);
 			$ligne2= $rep2 ->fetch();
+			$rep3=$bdd->query($sqlidC);
+			$ligne3 = $rep3 ->fetch();
 
 			if($_POST['mdp']==""||$_POST['user']==""){
 				echo "Username or Password empty"?>
@@ -26,7 +29,8 @@
 			<?php 
 			}else{
 				if($ligne['password']==$_POST['mdp']){
-					$_SESSION['utilisateur']=array($ligne2['username']);?>
+					$_SESSION['utilisateur']=array($ligne2['username']);
+					array_push($_SESSION['utilisateur'],$ligne3['idUser'])?>
 					<meta http-equiv="refresh" content="0; URL=index.php">
 				<?php }
 				else{
