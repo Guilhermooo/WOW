@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `import` (
-  `timestamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `timestamp` int(244) NOT NULL,
   `teamComp` varchar(255) NOT NULL,
   `ennemyComp` varchar(255) NOT NULL,
   `victory` tinyint(1) NOT NULL,
