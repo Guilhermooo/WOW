@@ -22,7 +22,7 @@ body {
 
 .index {
 	background-image: url(../images/banniere.png);
-	width: 100%
+	width: 100%;
 	border-width: 3px;
 	border-style: dashed;
 	border-color: #3366CC;
