@@ -17,10 +17,9 @@
 		?>
 <body>
 <div id="header">
-	<div id="logo">
- <a href="index.php"><img src=images/HunterSurvival.png></a>
-	</div>
+ <a href="index.php"><img id="logo" src=images/logo.png alt="WoW Arena"></a>
 </div>
+
 <div id="global">
 	<h1>WoW Arena</h1>
 

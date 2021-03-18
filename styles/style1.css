@@ -27,8 +27,7 @@ body {
 	}
 
 #header {
-		float: top;
-		position: fixed;
+	position: fixed;
 		background: url(../images/banniere.jpg);
 		-o-background-size: cover; 
    		background-color: black;
@@ -36,10 +35,13 @@ body {
 		width: 100%;
 		height: 100px;
 }
-#logo {
-	width:5%;
-	margin-left: 50px
-
+#logo a{
+	position: absolute;
+	diplay:block;
+	width: 70px;
+	height: 70px;
+	margin-left: 30px;
+	margin-top: 10px;
 }
 
 
