@@ -9,6 +9,13 @@
 	</head>
 	
 	<body>
+	<div id="header">
+	<div id="logo">
+ <a href="index.php"><img src=../images/HunterSurvival.png></a>
+	</div>
+</div>
+
+	<div id="global">
 		<h1 class="index">WoW Arena</h1>
 
 		<?php if(isset($_SESSION['utilisateur'])){
@@ -45,6 +52,6 @@
 		</a> <br />
 		
 		<p> <br /> </p>
-		
+		</div>
 	</body>
 </html>
