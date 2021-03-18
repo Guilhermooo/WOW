@@ -16,6 +16,7 @@
 			<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
 			<p> Import your csv <input type="file" name="monfichier" /></p>
 			<p><input type="submit" /></p>
+			<a href="index.php">Retour</a>
 
 		</form>
 
