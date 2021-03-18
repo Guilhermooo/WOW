@@ -22,10 +22,11 @@
 		$nomOrigine = $_FILES['monfichier']['name'];
 		$elementsChemin = pathinfo($nomOrigine);
 		$extensionFichier = $elementsChemin['extension'];
-		$extensionsAutorisees = array("csv","Classeur OpenOffice.org XML 1.0");
+		$extensionsAutorisees = array("csv","Classeur OpenOffice.org XML 1.0","txt");
 		if (!(in_array($extensionFichier, $extensionsAutorisees))) {
-		    echo "Le fichier n'a pas l'extension attendue";
-		} else {    
+		    echo "Le fichier n'a pas l'extension attendue";?>
+		    <a href="import.php">Retour</a>
+		<?php } else {    
 		    $repertoireDestination = dirname(__FILE__)."/files/";
 		    $nomDestination = "fichier_du_".date("YmdHis").".".$extensionFichier;
 
@@ -51,17 +52,20 @@
 			        	$ch11=$data[14];
 			        	ajouter($ch1,$ch2,$ch3,$ch4,$ch5,$ch6,$ch7,$ch8,$ch9,$ch10,$ch11);
 		    		}
-		    		echo "<p> Importation réussie</p>\n";
-		    		fclose($handle);
+		    		echo "</br><p> Importation réussie</p></br>";?>
+		    		<meta http-equiv="refresh" content="1; URL=stats.php">
+		    		<?php fclose($handle);
 				}
 
 		        ?>
 		        
 		   	<?php } else {
+		   		
 		        echo "Le fichier n'a pas été uploadé (trop gros ?) ou ".
 		                "Le déplacement du fichier temporaire a échoué".
-		                " vérifiez l'existence du répertoire ".$repertoireDestination;
-		    }
+		                " vérifiez l'existence du répertoire ".$repertoireDestination;?>
+		        <a href="import.php">Retour</a>
+		    <?php }
 		}
 		?>
 	</body>
