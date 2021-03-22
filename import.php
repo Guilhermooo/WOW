@@ -10,6 +10,9 @@
 	</head>
 
 	<body>
+		<div id="header">
+ <a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
+</div>
 
 		<form enctype="multipart/form-data" action="fileupload.php" method="post">
 

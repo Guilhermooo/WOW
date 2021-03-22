@@ -7,6 +7,9 @@
 		<title>WoW Arena</title>
  </head>
  <body>
+ 	<div id="header">
+ <a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
+</div>
 	<h1 class="index">Bonjour, bienvenue sur le site WoW Arena</h1>
 	<h2><a href="inscription.php">S'inscrire</a></h2>
 	<h2><a href="Connection.php">Se connecter</a></h2>

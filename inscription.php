@@ -10,6 +10,9 @@
 	</head>
 
 	<body>
+		<div id="header">
+ <a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
+</div>
 		<form action="enregistrement.php" method="post" autocomplete="off">
 			<p>Username :<input type="text" name="u" value="<?php echo $_GET['u'];?>"/></p>
 			<p>Mot de passe :<input type="password" name="mdp1" value=""/></p>
