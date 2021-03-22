@@ -17,7 +17,7 @@
 		?>
 <body>
 <div id="header">
- <a href="index.php"><img id="logo" src=images/logo.png alt="WoW Arena"></a>
+ <a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
 </div>
 
 <div id="global">
