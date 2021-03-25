@@ -62,7 +62,7 @@
 			        	ajouter($ch1,$ch2,$ch3,$ch4,$ch5,$ch6,$ch7,$ch8,$ch9,$ch10,$ch11);
 		    		}
 		    		echo "</br><p> Importation réussie</p></br>";?>
-		    		<meta http-equiv="refresh" content="2; URL=stats.php">
+		    		<meta http-equiv="refresh" content="2; URL=statistics.php">
 		    		<?php fclose($handle);
 				}
 
