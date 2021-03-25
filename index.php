@@ -29,6 +29,7 @@
 				<h2><a href="deconnexion.php">Log Out</a></h2>
 				<?php echo '<br />'?>
 				<h2><a href="import.php" >Import</a></h2>
+				<h2><a href="statistics.php" >Statistics</a></h2>
 			<?php }else{?>
 					<h2><a href="inscription.php">Sign Up</a></h2>
 					<?php echo '<br/>'?>
