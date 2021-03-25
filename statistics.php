@@ -11,46 +11,76 @@
         <?php
         include ("bd.php");
         $bdd = getBD();
-        function winrS($spe){
-            $winrspe="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=6)*100 as winr from import WHERE victory=1 and isRated=1 and playersNumber=6 and specialization=".$spe;
-            $rep2=$bdd->query($winrspe);
+        function winrS($spe,$nbj){
+            $bdd = getBD();
+            $sql2="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=$nbj and specialization=".$spe."and idUser=".$_SESSION['utilisateur'][1].")*100 as winrS from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and specialization=".$spe."and idUser=".$_SESSION['utilisateur'][1];
+            $rep2=$bdd->query($sql2);
             $ligne2 = $rep2 ->fetch();
-            echo $ligne2['winr'];
+            return $ligne2['winrS'];
         }
-        
-
         ?>
 
     </head>
 
     <body>
         <?php
-        echo "<h2>3v3 :</h2>";
+        echo "<div><h2>3v3 :</h2>";
 
         $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
         $rep=$bdd->query($wins);
         $ligne = $rep ->fetch();
-        echo $ligne['win']." Win ";
+        echo "<p>".$ligne['win']." Win ";
 
         $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
         $rep=$bdd->query($loses);
         $ligne = $rep ->fetch();
-        echo $ligne['loses']." Lose </br>";
+        echo $ligne['loses']." Lose </br></p>";
 
         $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=6)*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
         $rep=$bdd->query($winrate);
         $ligne = $rep ->fetch();
-        echo "WinRate : ".$ligne['winrate']."%</br>";
+        echo "<p>WinRate : ".$ligne['winrate']."%</br></p>";
 
         echo "<h3>WinRate per specialization : </h3>";
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=6";
         $nbspe="select count(DISTINCT specialization) from import where idUser=7 and isRated=1 and playersNumber=6";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
-            $spe=$ligne['specialization'];
-            echo "Winrate ".$spe." :"."% ";
+            $spe="'".$ligne['specialization']."'";
+            $spe2=$ligne['specialization'];
+            $nbj=6;
+            echo "<p>Winrate ".$spe2." :".winrS($spe,$nbj)."% </p>";
         }$rep ->closeCursor();
-        
+        echo"</div>";
+
+        echo "<div><h2>2v2 :</h2>";
+
+        $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
+        $rep=$bdd->query($wins);
+        $ligne = $rep ->fetch();
+        echo "<p>".$ligne['win']." Win ";
+
+        $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
+        $rep=$bdd->query($loses);
+        $ligne = $rep ->fetch();
+        echo $ligne['loses']." Lose </br></p>";
+
+        $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=4)*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
+        $rep=$bdd->query($winrate);
+        $ligne = $rep ->fetch();
+        echo "<p>WinRate : ".$ligne['winrate']."%</br></p>";
+
+        echo "<h3>WinRate per specialization : </h3>";
+        $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=4";
+        $nbspe="select count(DISTINCT specialization) from import where idUser=7 and isRated=1 and playersNumber=4";
+        $rep = $bdd->query($spe);
+        while ($ligne = $rep ->fetch()) {
+            $spe="'".$ligne['specialization']."'";
+            $spe2=$ligne['specialization'];
+            $nbj=4;
+            echo "<p>Winrate ".$spe2." :".winrS($spe,$nbj)."% </p>";
+        }$rep ->closeCursor();
+        echo"</div>";
         ?>
 
     </body>
