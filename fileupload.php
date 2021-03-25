@@ -11,6 +11,14 @@
 	</head>
 
 	<body>
+	
+		<div id="header">
+		<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
+		</div>
+		
+		<div id="global">
+		<h1 class="index">WoW Arena</h1>
+	
 		<?php
 		include ("bd.php");
 		function ajouter($ch1,$ch2,$ch3,$ch4,$ch5,$ch6,$ch7,$ch8,$ch9,$ch10,$ch11){
@@ -26,7 +34,7 @@
 		if (!(in_array($extensionFichier, $extensionsAutorisees))) {
 		    echo "Le fichier n'a pas l'extension attendue";
 		    echo "</br>";?>
-		    <a href="import.php">Retour</a>
+		    <a href="import.php">Return</a>
 		<?php } else {    
 		    $repertoireDestination = dirname(__FILE__)."/files/";
 		    $nomDestination = "fichier_du_".date("YmdHis").".".$extensionFichier;
@@ -66,10 +74,13 @@
 		                "Le déplacement du fichier temporaire a échoué".
 		                " vérifiez l'existence du répertoire ".$repertoireDestination;
 		        echo "</br>";?>
-		        <a href="import.php">Retour</a>
+		        <a href="import.php">Return</a>
 		    <?php }
 		}
 		?>
+		<p> <br /> </p>
+		</div>
+		
 	</body>
 
 </html>

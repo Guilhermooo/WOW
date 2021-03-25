@@ -11,21 +11,28 @@
 
 	<body>
 		<div id="header">
- <a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
-</div>
+		<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
+		</div>
+		
+		<div id="global">
+		<h1 class="index">WoW Arena</h1>
+		<h1 class="index">Import : </h1>
 
 		<form enctype="multipart/form-data" action="fileupload.php" method="post">
 
 			<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
 			<p> Import your csv <input type="file" name="monfichier" /></p>
 			<p><input type="submit" /></p>
-			<a href="index.php">Retour</a>
-
 		</form>
+		
 
-	</body>
-
-
+		<a href="index.php">
+		Return
+		</a> 
+		
+		<p> <br /> </p>
+		</div>
+		
 	</body>
 
 </html>

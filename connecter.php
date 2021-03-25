@@ -8,6 +8,13 @@
 		<title>WOW Arena</title>
 		<link rel="stylesheet" href="styles\style1.css"type="text/css" media="screen" />
 
+		<div id="header">
+		<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
+		</div>
+		
+		<div id="global">
+		<h1 class="index">WoW Arena</h1>
+		
 		<?php 
 			include ("bd.php");
 			$bdd = getBD();
@@ -42,13 +49,15 @@
 			
 
 			<?php }?>
+			
+			</div>
 
 	</head>
 
 	<body>
 		
-	
-
+		<p> <br /> </p>
+		
 	</body>
 
 </html>

@@ -9,10 +9,8 @@
 	</head>
 	
 	<body>
-	<div id="header">
-	<div id="logo">
- <a href="index.php"><img src=../images/HunterSurvival.png></a>
-	</div>
+<div id="header">
+ <a href="index.php"><img id="logo" src=../images/logoW.png alt="WoW Arena"></a>
 </div>
 
 	<div id="global">
@@ -48,7 +46,7 @@
 		<p> <em> Thank you for your visit </em> </p> <br />
 		
 		<a href="../index.php">
-		Retour
+		Return
 		</a> <br />
 		
 		<p> <br /> </p>
