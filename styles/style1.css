@@ -14,19 +14,19 @@ html {
 	border-style: solid;
 	border-color: brown;
 	background-color: #D2B48C;
-	width: 750px;
+	width: 1000px;
 	padding-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
+	font-size: 20px;
+	text-align: center;
 } 
 
 body {
-	padding: 0;
+	padding: 0px;
 	margin:0;
 	color: #17202A;
-	font-size: 1.0em;
-
-	}
+}
 
 #header {
 	position: fixed;
@@ -46,20 +46,56 @@ body {
 	margin-top: 8px;
 }
 
+#text{
+	margin-right: 50px;
+	text-align: right;
+}
+
+#title{
+}
+
+
+.intro {
+	border-width: 1px;
+	border-color: red;
+	margin-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+}
 
 .explications {
 	border-width: 1px;
 	border-color: brown;
-	margin-bottom: 50px;
-	padding-left: 20px;
+	margin-bottom: 20px;
+	padding-left: 30px;
+	padding-right: 20px;
+	text-align: center;
 }
 
 .import {
 	color: brown;
+	margin-top : 30px;
 	margin-bottom: 20px;
 	padding-left: 10px;
+	text-align: center;
 }
 
+.bouton {
+	color: white;
+	margin-top : 30px;
+	margin-bottom: 20px;
+
+}
+
+.title {
+	border-width: 1px;
+	border-color: red;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 50px;
+}
 
 .contact {
 	border-width: 2px;
@@ -67,4 +103,5 @@ body {
 	margin-top: 30px;
 	margin-bottom: 50px;
 	padding-left: 20px;
+	text-align: center;
 }
