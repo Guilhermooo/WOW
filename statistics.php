@@ -1,29 +1,38 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 
- 	<head>
- <meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
- <link rel="stylesheet" href="styles/style1.css"type="text/css" media="screen" />
-		<title>WoW Arena</title>
- </head>
- <body>
- 	<div id="header">
- <a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
-</div>
-	<h1 class="index">Bonjour, bienvenue sur le site WoW Arena</h1>
-	<h2><a href="inscription.php">S'inscrire</a></h2>
-	<h2><a href="Connection.php">Se connecter</a></h2>
+    <head>
 
-	<h3> Comment ça marche ? </h3>
-	<p class="Explications"> 
-		Pour utiliser notre application il faut que vous créez un compte en utilisant le bouton "s'incrire" en haut à droite et ou que vous vous connectiez avec le bouton "se connecter" si vous possédez déjà un compte. </p>
-		<p class="Explications"> Vous devez récupérer votre historique d'arènes en jeu sous forme .csv et l'importer dans notre application.</p>
-		<p class="Explications"> Une fois votre historique importé, notre application va analyser vos parties afin de déterminer des statistiques pour que vous puissiez progresser.</p>
-		<p class="Explications"> Les statistiques analysées en arêne côtée sont : votre pourcentage de victoire, votre total de points de côte sur les X dernières parties, les classes contre et avec lesquelles vous gagnez et perdez le plus. </p>
+        <meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
 
-		<p class="Explications"> Ces statistiques peuvent être triée en fonction de votre spécialization et en 2v2, 3v3 ou pour les deux modes. 
-	</p>
+        <title>WoW Arena</title>
+        <?php
+        include ("bd.php");
+        $bdd = getBD();
+        ?>
 
-<p class="contact"><a href="contact/contact.html">Contact</a></p>
- </body>
+     </head>
+
+     <body>
+
+         <?php
+         $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
+         $rep=$bdd->query($wins);
+         $ligne = $rep ->fetch();
+         echo $ligne['win']."V";
+
+         $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
+         $rep=$bdd->query($loses);
+         $ligne = $rep ->fetch();
+         echo $ligne['loses']."L";
+
+         $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=6)*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
+         $rep=$bdd->query($winrate);
+         $ligne = $rep ->fetch();
+         echo "WinRate : ".$ligne['winrate']."%";
+         ?>
+
+    </body>
+
 </html>
