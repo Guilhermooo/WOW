@@ -6,6 +6,7 @@
 
         <meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="styles\style1.css"type="text/css" media="screen" />
+        <script type="text/javascript"src="script.js"></script>
 
         <title>WoW Arena</title>
         <?php
@@ -20,11 +21,22 @@
         }
         ?>
 
+        <style type="text/css">
+        div{
+            display: none;
+        }    
+
+        </style>
+
     </head>
 
     <body>
+
+        <button id="monBouton1" onclick=v2()>2v2</button>
+        <button id="monBouton2" onclick=v3()>3v3</button>
+
         <?php
-        echo "<div><h2>3v3 :</h2>";
+        echo "<div id='v3'><h2>3v3 :</h2>";
 
         $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
         $rep=$bdd->query($wins);
@@ -53,7 +65,7 @@
         }$rep ->closeCursor();
         echo"</div>";
 
-        echo "<div><h2>2v2 :</h2>";
+        echo "<div id='v2'><h2>2v2 :</h2>";
 
         $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
         $rep=$bdd->query($wins);
@@ -82,6 +94,7 @@
         }$rep ->closeCursor();
         echo"</div>";
         ?>
+
 
     </body>
 
