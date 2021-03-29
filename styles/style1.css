@@ -88,6 +88,13 @@ body {
 
 }
 
+.mail {
+	color: blue;
+	margin-top : 10px;
+	margin-bottom: 10px;
+
+}
+
 .title {
 	border-width: 1px;
 	border-color: red;
