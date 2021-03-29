@@ -21,7 +21,7 @@
 		
 		<form action="connecter.php" method="post" autocomplete="off">
 			<p>Username :<input type="text" name="user" value="<?php echo $_GET['user'];?>"/></p>
-			<p>Mot de passe :<input type="password" name="mdp" value=""/></p>
+			<p>Password :<input type="password" name="mdp" value=""/></p>
 			<p><input type="submit" value="Envoyer"></p>
 		</form>
 
