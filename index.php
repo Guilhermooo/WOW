@@ -20,8 +20,9 @@
 	<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
 	
 	<div id="text">
+	<h3 class="bouton">
 	<?php if(isset($_SESSION['utilisateur'])){
-		echo "<p>Welcome ". $_SESSION['utilisateur'][0]."</p>";?>
+		echo "Welcome ". $_SESSION['utilisateur'][0]."";?> </h3>
 		<h1 class="bouton"> •<a href="deconnexion.php">Log Out</a>
 		•<a href="import.php">Import</a>
 		•<a href="statistics.php" >Statistics</a></h1>
