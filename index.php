@@ -21,8 +21,7 @@
 	
 	<div id="text">
 	<?php if(isset($_SESSION['utilisateur'])){
-		echo "Welcome ". $_SESSION['utilisateur'][0];
-		echo "<br />";?>
+		echo "<p>Welcome ". $_SESSION['utilisateur'][0]."</p>";?>
 		<h1 class="bouton"> •<a href="deconnexion.php">Log Out</a>
 		•<a href="import.php">Import</a>
 		•<a href="statistics.php" >Statistics</a></h1>
