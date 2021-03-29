@@ -93,6 +93,8 @@
             echo "<p>Winrate ".$spe2." :".winrS($spe,$nbj)."% </p>";
         }$rep ->closeCursor();
         echo"</div>";
+
+        
         ?>
 
 
