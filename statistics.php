@@ -93,6 +93,10 @@
             echo "<p>Winrate ".$spe2." :".winrS($spe,$nbj)."% </p>";
         }$rep ->closeCursor();
         echo"</div>";
+
+        echo "<img src='graphs/graphBar.php'/>";
+        echo '</br>';
+        echo "<img src='graphs/graphPie.php'/>";
         ?>
 
 
