@@ -19,6 +19,7 @@
             $ligne2 = $rep2 ->fetch();
             return $ligne2['winrS'];
         }
+
         ?>
 
         <style type="text/css">
@@ -93,11 +94,9 @@
             echo "<p>Winrate ".$spe2." :".winrS($spe,$nbj)."% </p>";
         }$rep ->closeCursor();
         echo"</div>";
-
-       // echo "<img src='graphs/graphBar.php'/>";
-       // echo "<img src='graphs/graphPie.php'/>";
-
         ?>
+
+        <a href="delete.php"> <input type="button" value="Reset"> </a>
 
 
     </body>
