@@ -15,7 +15,7 @@
 		</div>
 
 		<div id="global">
-		<h1 class="index">WoW Arena</h1>
+		<h1 class="title">WoW Arena</h1>
 		<h1 class="index"> <u> Log in : </u> </h1>
 
 		
