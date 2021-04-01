@@ -94,6 +94,12 @@
             echo "<p>Winrate ".$spe2." :".winrS($spe,$nbj)."% </p>";
         }$rep ->closeCursor();
         echo"</div>";
+
+
+
+        echo "<img src='graphs/graphBar.php'/>";
+        echo "<img src='graphs/graphPie.php'/>";
+        echo "<img src='graphs/graphMMR.php'/>";
         ?>
 
         <a href="delete.php"> <input type="button" value="Reset"> </a>

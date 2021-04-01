@@ -1,17 +1,31 @@
+<?php session_start(); ?>
 <?php // content="text/plain; charset=utf-8"
+ include ("../bd.php");
+        $bdd = getBD();
 require_once ('../jpgraph/src/jpgraph.php');
 require_once ('../jpgraph/src/jpgraph_pie.php');
+
+$wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
+        $rep=$bdd->query($wins);
+        $ligne = $rep ->fetch();
+
+        $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
+        $rep=$bdd->query($loses);
+        $ligne2 = $rep ->fetch();
+   
+
 // Some data
-$data = array(40,21,17,14,23);
+
+$data = array($ligne['win'],$ligne2['loses']);
 
 // Create the Pie Graph. 
-$graph = new PieGraph(350,250);
+$graph = new PieGraph(230,230);
 
 $theme_class="DefaultTheme";
 //$graph->SetTheme(new $theme_class());
 
 // Set A title for the plot
-$graph->title->Set("A Simple Pie Plot");
+$graph->title->Set("Winrate");
 $graph->SetBox(true);
 
 // Create
@@ -20,7 +34,7 @@ $graph->Add($p1);
 
 $p1->ShowBorder();
 $p1->SetColor('black');
-$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
+$p1->SetSliceColors(array('green','red'));
 $graph->Stroke();
 
 ?>
