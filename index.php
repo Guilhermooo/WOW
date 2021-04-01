@@ -20,16 +20,17 @@
 			<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
 	
 		<div id="text">
+		
 		<h3 class="bouton">
-			<?php if(isset($_SESSION['utilisateur'])){
-				echo "Welcome ". $_SESSION['utilisateur'][0]."";?> </h3>
-				<h1 class="bouton"> •<a href="deconnexion.php">Log Out</a>
-				•<a href="import.php">Import</a>
-				•<a href="statistics.php" >Statistics</a></h1>
-			<?php }else{?>
-				<h1 class="bouton"> •<a href="inscription.php">Sign Up</a>
-				•<a href="connexion.php">Log In</a> </h1>
-				<?php } ?>
+		<?php if(isset($_SESSION['utilisateur'])){
+			echo "Welcome ". $_SESSION['utilisateur'][0]."";?> </h3>
+			<h2 class="b"> •<a href="deconnexion.php" class="bouton">Log Out</a>
+			•<a href="import.php" class="bouton">Import</a>
+			•<a href="statistics.php" class="bouton">Statistics</a></h2>
+		<?php }else{?>
+			<h2 class="b"> •<a href="inscription.php" class="bouton">Sign Up</a>
+			•<a href="connexion.php" class="bouton">Log In</a> </h2>
+			<?php } ?>
 		
 		</div>
 	
@@ -37,7 +38,7 @@
 
 	<div id="global">
 		<h1 class="title">WoW Arena</h1>
-			<h3 class="bouton"> <u> Introduction </u> </h3>
+			<h3 class="intro"> <u> Introduction </u> </h3>
 			<p class="intro"> 
 				Welcome to our WoW Arena website, here you can import your players versus players game history from the addon Reflex and analyse your results. </p>
 				<p class="explications"> See what hold you back from getting your dream rating and optimize your gameplay with our advices on how to counter each class specialization.</p>
@@ -47,7 +48,7 @@
 			<h4 class="import">How to import : </h4>
 			<p class="import"> After loging in, you may follow our tutorial on how to import your game history and analyse your results.</p>
 
-		<p class="bouton"><a href="contact/contact.php">Contact us</a></p>
+		<p><a href="contact/contact.php"  class="bou">Contact us</a></p>
 
 		</body>
 	</div>

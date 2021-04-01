@@ -94,6 +94,9 @@
         }$rep ->closeCursor();
         echo"</div>";
 
+       // echo "<img src='graphs/graphBar.php'/>";
+       // echo "<img src='graphs/graphPie.php'/>";
+
         ?>
 
 

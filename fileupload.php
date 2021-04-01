@@ -33,8 +33,9 @@
 		$extensionsAutorisees = array("csv","Classeur OpenOffice.org XML 1.0","txt");
 		if (!(in_array($extensionFichier, $extensionsAutorisees))) {
 		    echo "Le fichier n'a pas l'extension attendue";
-		    echo "</br>";?>
-		    <a href="import.php">Return</a>
+		    echo "</br>";
+			echo "</br>";?>
+		    <a href="import.php" class="bou">Return</a>
 		<?php } else {    
 		    $repertoireDestination = dirname(__FILE__)."/files/";
 		    $nomDestination = "fichier_du_".date("YmdHis").".".$extensionFichier;
@@ -76,8 +77,9 @@
 		        echo "Le fichier n'a pas été uploadé (trop gros ?) ou ".
 		                "Le déplacement du fichier temporaire a échoué".
 		                " vérifiez l'existence du répertoire ".$repertoireDestination;
+		        echo "</br>";
 		        echo "</br>";?>
-		        <a href="import.php">Return</a>
+		        <a href="import.php" class="bou">Return</a>
 		    <?php }
 		}
 		?>
