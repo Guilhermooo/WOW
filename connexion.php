@@ -16,7 +16,7 @@
 
 		<div id="global">
 		<h1 class="index">WoW Arena</h1>
-		<h1 class="index">Log in : </h1>
+		<h1 class="index"> <u> Log in : </u> </h1>
 
 		
 		<form action="connecter.php" method="post" autocomplete="off">
@@ -25,7 +25,7 @@
 			<p><input type="submit" value="Envoyer"></p>
 		</form>
 
-		<a href="index.php">
+		<a href="index.php" class="bou">
 		Return
 		</a> <br />
 		
