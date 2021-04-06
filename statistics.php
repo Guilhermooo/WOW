@@ -63,7 +63,7 @@
                         $rep6=$bdd->query($c1);
                         $ligne6 = $rep6 ->fetch();
                         if($ligne6['winrate']<60){
-                            echo $spe2." : ".round($ligne6['winrate'],2)."% ";
+                            echo $spe2." : ".round($ligne6['winrate'],2)."% ".imgs($spe2);
                         }
                         
                     }
@@ -88,7 +88,8 @@
             }
 
             .imgs{
-                width: 20%;     
+                width: 50px;
+                height: 50px;     
             }
             
 
@@ -103,7 +104,7 @@
 
         <?php
 
-        $class=array("Frost-DeathKnight","Unholy","DemonHunter","Feral","Balance","BeatMastery","Survival","Marksmanship","Fire-Mage","Arcane","frost-Mage","Windwalker","Retribution","Shadow","Assassination","Subtlety","Elemental","Enhancement","Affliction","Destruction","Demonology","Arms");
+        $class=array("Frost-DeathKnight","Unholy","Havoc","Feral","Balance","BeatMastery","Survival","Marksmanship","Fire-Mage","Arcane","frost-Mage","Windwalker","Retribution","Shadow","Assassination","Subtlety","Elemental","Enhancement","Affliction","Destruction","Demonology","Arms");
 
         echo "<div id='v3'><h2>3v3 :</h2>";
 
@@ -130,7 +131,7 @@
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=6;
-            echo "<div>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>".matchup($class,$spe2,$nbj)."</div>";
+            echo "<div class='spe'>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>".matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
         echo"</div>";
 
@@ -159,7 +160,7 @@
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=4;
-            echo "<div>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>".matchup($class,$spe2,$nbj)."</div>";
+            echo "<div class='spe'>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>".matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
         echo"</div>";
 
