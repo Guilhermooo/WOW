@@ -105,9 +105,16 @@
             }
 
             .cont{
-                display: none;
+                display: inline-block;
             }
 
+            .spe{
+                display: block;
+            }
+
+            body{
+                
+            }
 
         </style>
 
@@ -137,17 +144,16 @@
         $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=6)*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
         $rep=$bdd->query($winrate);
         $ligne = $rep ->fetch();
-        echo "<p>WinRate : ".$ligne['winrate']."%</br></p></div>";
+        echo "<p>WinRate : ".round($ligne['winrate'],2)."%</br></p></div>";
 
         echo "<h3>WinRate per specialization : </h3>";
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=6";
-        $nbspe="select count(DISTINCT specialization) from import where idUser=7 and isRated=1 and playersNumber=6";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=6;
-            echo "<div class='spe'>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>";
+            echo imgs($spe2)."<div class='spe'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".round(winrS($spe,$nbj),2)."% </p>";
             echo matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
         echo"</div>";
@@ -167,17 +173,16 @@
         $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=4)*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
         $rep=$bdd->query($winrate);
         $ligne = $rep ->fetch();
-        echo "<p>WinRate : ".$ligne['winrate']."%</br></p></div>";
+        echo "<p>WinRate : ".round($ligne['winrate'],2)."%</br></p></div>";
 
         echo "<h3>WinRate per specialization : </h3>";
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=4";
-        $nbspe="select count(DISTINCT specialization) from import where idUser=7 and isRated=1 and playersNumber=4";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=4;
-            echo "<div class='spe'>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>";
+            echo imgs($spe2)."<div class='spe'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".round(winrS($spe,$nbj),2)."% </p>";
             echo matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
         echo"</div>";
