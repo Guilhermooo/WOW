@@ -63,7 +63,7 @@
                         $rep6=$bdd->query($c1);
                         $ligne6 = $rep6 ->fetch();
                         if($ligne6['winrate']<=50){
-                            echo "<li class='imgl'>".imgs($spe2)."</li>";
+                            echo "<li>".imgs($spe2)."</li>";
                             echo "<li class='cont'>".$spe2." : ".round($ligne6['winrate'],2)."%</li>";
                         }
                         
@@ -108,9 +108,6 @@
                 display: none;
             }
 
-            .imgl{
-                border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
-            }
 
         </style>
 
