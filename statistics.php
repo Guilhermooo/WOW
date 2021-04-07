@@ -52,7 +52,7 @@
             function matchup($class,$spe,$nbj){
                 $bdd = getBD();
                 $idu=$_SESSION['utilisateur'][1];
-                echo "<p> Worst Matchup: ";
+                echo "<ul> Worst Matchup: ";
                 for($i=0;$i<count($class);$i++){
                     $spe2=$class[$i];
                     $nbp="select count(victory) as nbg from import WHERE isRated=1 and playersNumber=$nbj and ennemyComp LIKE '%$spe2%'and idUser=$idu and specialization='$spe'";
@@ -62,14 +62,15 @@
                         $c1="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=$nbj and ennemyComp LIKE '%$spe2%'and idUser=$idu and specialization='$spe')*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and ennemyComp LIKE '%$spe2%' and idUser=$idu and specialization='$spe'";
                         $rep6=$bdd->query($c1);
                         $ligne6 = $rep6 ->fetch();
-                        if($ligne6['winrate']<60){
-                            echo $spe2." : ".round($ligne6['winrate'],2)."% ".imgs($spe2);
+                        if($ligne6['winrate']<=50){
+                            echo "<li class='imgl'>".imgs($spe2)."</li>";
+                            echo "<li class='cont'>".$spe2." : ".round($ligne6['winrate'],2)."%</li>";
                         }
                         
                     }
                     
                 }
-                echo "</p>";
+                echo "</ul>";
             }
 
         ?>
@@ -83,15 +84,33 @@
             div div{
                 border-radius: 30px;
                 border:red solid 2px;
-                width: 180px;
+                width: 700px;
                 margin-bottom: 10px;
             }
 
             .imgs{
                 width: 50px;
-                height: 50px;     
+                height: 50px; 
+                border: solid black 3px;
+                border-radius: 15px;
+            }
+            ul{
+                padding:0;
             }
             
+            li{
+                list-style-type: none;
+                display: inline-block;
+
+            }
+
+            .cont{
+                display: none;
+            }
+
+            .imgl{
+                border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
+            }
 
         </style>
 
@@ -131,7 +150,8 @@
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=6;
-            echo "<div class='spe'>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>".matchup($class,$spe2,$nbj)."</div>";
+            echo "<div class='spe'>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>";
+            echo matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
         echo"</div>";
 
@@ -160,7 +180,8 @@
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=4;
-            echo "<div class='spe'>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>".matchup($class,$spe2,$nbj)."</div>";
+            echo "<div class='spe'>".imgs($spe2)."<p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".winrS($spe,$nbj)."% </p>";
+            echo matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
         echo"</div>";
 
