@@ -18,7 +18,7 @@
 	<body>
 		<div id="header">
 			<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
-	
+			<h1 class="title">WoW Arena</h1>
 		<div id="text">
 		
 		<h3 class="bouton">
@@ -37,7 +37,7 @@
 		</div>
 
 	<div id="global">
-		<h1 class="title">WoW Arena</h1>
+		
 			<h3 class="intro"> <u> Introduction </u> </h3>
 			<p class="intro"> 
 				Welcome to our WoW Arena website, here you can import your players versus players game history from the addon Reflex and analyse your results. </p>
