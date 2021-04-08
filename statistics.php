@@ -52,7 +52,7 @@
             function matchup($class,$spe,$nbj){
                 $bdd = getBD();
                 $idu=$_SESSION['utilisateur'][1];
-                echo "<ul> Worst Matchup: ";
+                echo "<p>Toughest Matchups :</p><ul>";
                 for($i=0;$i<count($class);$i++){
                     $spe2=$class[$i];
                     $nbp="select count(victory) as nbg from import WHERE isRated=1 and playersNumber=$nbj and ennemyComp LIKE '%$spe2%'and idUser=$idu and specialization='$spe'";
@@ -146,7 +146,7 @@
         $ligne = $rep ->fetch();
         echo "<p>WinRate : ".round($ligne['winrate'],2)."%</br></p></div>";
 
-        echo "<h3>WinRate per specialization : </h3>";
+        echo "<h3>Specialization : </h3>";
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=6";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
@@ -175,7 +175,7 @@
         $ligne = $rep ->fetch();
         echo "<p>WinRate : ".round($ligne['winrate'],2)."%</br></p></div>";
 
-        echo "<h3>WinRate per specialization : </h3>";
+        echo "<h3>Specialization : </h3>";
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=4";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
