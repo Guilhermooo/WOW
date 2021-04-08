@@ -21,6 +21,8 @@ $data = array($ligne['win'],$ligne2['loses']);
 // Create the Pie Graph. 
 $graph = new PieGraph(230,230);
 
+
+$graph->SetColor('#D2B48C'); 
 $theme_class="DefaultTheme";
 //$graph->SetTheme(new $theme_class());
 
@@ -32,9 +34,11 @@ $graph->SetBox(true);
 $p1 = new PiePlot($data);
 $graph->Add($p1);
 
-$p1->ShowBorder();
-$p1->SetColor('black');
-$p1->SetSliceColors(array('green','red'));
+
+
+
+$p1->SetSliceColors(array('#2E8B57','#B22222'));
+$graph->SetBackgroundGradient($aFrom='navy',$aTo='silver',$aGradType=2,$aStyle=BGRAD_FRAME);
 $graph->Stroke();
 
 ?>
