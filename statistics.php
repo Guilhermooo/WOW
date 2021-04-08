@@ -74,57 +74,30 @@
             }
 
         ?>
-
-        <style type="text/css">
-
-            body>div{
-                display: none;
+		<style type="text/css">
+			#v2 { 
+				display: None;
+			}
+			#v3 {
+                display: None;
             }
-
-            div div{
-                border-radius: 30px;
-                border:red solid 2px;
-                width: 700px;
-                margin-bottom: 10px;
-            }
-
-            .imgs{
-                width: 50px;
-                height: 50px; 
-                border: solid black 3px;
-                border-radius: 15px;
-            }
-            ul{
-                padding:0;
-            }
-            
-            li{
-                list-style-type: none;
-                display: inline-block;
-
-            }
-
-            .cont{
-                display: inline-block;
-            }
-
-            .spe{
-                display: block;
-            }
-
-            body{
-                
-            }
-
-        </style>
+		</style>
 
     </head>
 
     <body>
-
+		
+		<div id="header">
+			<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
+			<h1 class="title">WoW Arena</h1>
+		</div>
+		
+		<div id="global">
+		
         <button id="monBouton1" onclick=v2()>2v2</button>
         <button id="monBouton2" onclick=v3()>3v3</button>
-
+		
+		
         <?php
 
         $class=array("Frost-DeathKnight","Unholy","Havoc","Feral","Balance","BeatMastery","Survival","Marksmanship","Fire-Mage","Arcane","frost-Mage","Windwalker","Retribution","Shadow","Assassination","Subtlety","Elemental","Enhancement","Affliction","Destruction","Demonology","Arms");
@@ -193,10 +166,11 @@
         //echo "<img src='graphs/graphPie.php'/>";
         //echo "<img src='graphs/graphMMR.php'/>";
         ?>
+		
+        <p> <a href="delete.php"> <input type="button" value="Reset"> </a> </p>
 
-        <a href="delete.php"> <input type="button" value="Reset"> </a>
-
-
+		
+		</div>
     </body>
 
 </html>
