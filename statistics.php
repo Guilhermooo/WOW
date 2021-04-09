@@ -15,6 +15,30 @@
             include ("bd.php");
             $bdd = getBD();
 
+            function win($nbj){
+                $bdd = getBD();
+                $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and idUser=".$_SESSION['utilisateur'][1];
+                $rep=$bdd->query($wins);
+                $ligne = $rep ->fetch();
+                return $ligne['win']." Win ";
+            }
+           
+           function lose($nbj){
+                $bdd = getBD();
+                $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=$nbj and idUser=".$_SESSION['utilisateur'][1];
+                $rep=$bdd->query($loses);
+                $ligne = $rep ->fetch();
+                return $ligne['loses']." Lose ";
+           }
+
+           function winrate($nbj){
+                $bdd = getBD();
+                $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=6)*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and idUser=".$_SESSION['utilisateur'][1];
+                $rep=$bdd->query($winrate);
+                $ligne = $rep ->fetch();
+                return "<p>WinRate : ".round($ligne['winrate'],2)."%</p>";
+           }
+
             function winrS($spe,$nbj){
                 $bdd = getBD();
                 $sql2="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=$nbj and specialization=".$spe."and idUser=".$_SESSION['utilisateur'][1].")*100 as winrS from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and specialization=".$spe."and idUser=".$_SESSION['utilisateur'][1];
@@ -52,7 +76,7 @@
             function matchup($class,$spe,$nbj){
                 $bdd = getBD();
                 $idu=$_SESSION['utilisateur'][1];
-                echo "<p>Toughest Matchups :</p><ul>";
+                echo "<h3>Toughest Matchups</h3><ul>";
                 for($i=0;$i<count($class);$i++){
                     $spe2=$class[$i];
                     $nbp="select count(victory) as nbg from import WHERE isRated=1 and playersNumber=$nbj and ennemyComp LIKE '%$spe2%'and idUser=$idu and specialization='$spe'";
@@ -74,13 +98,19 @@
             }
 
         ?>
+
 		<style type="text/css">
+
 			#v2 { 
 				display: None;
 			}
+
 			#v3 {
                 display: None;
             }
+
+            
+
 		</style>
 
     </head>
@@ -102,24 +132,12 @@
 
         $class=array("Frost-DeathKnight","Unholy","Havoc","Feral","Balance","BeatMastery","Survival","Marksmanship","Fire-Mage","Arcane","frost-Mage","Windwalker","Retribution","Shadow","Assassination","Subtlety","Elemental","Enhancement","Affliction","Destruction","Demonology","Arms");
 
-        echo "<div id='v3'><h2>3v3 :</h2>";
+        echo "<div id='v3'><h2>3v3</h2>";
+        $nbj=6;
+        echo "<div><p>".win($nbj).lose($nbj)."</p>";
+        echo winrate($nbj)."</div>";
 
-        $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
-        $rep=$bdd->query($wins);
-        $ligne = $rep ->fetch();
-        echo "<div><p>".$ligne['win']." Win ";
-
-        $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
-        $rep=$bdd->query($loses);
-        $ligne = $rep ->fetch();
-        echo $ligne['loses']." Lose </br></p>";
-
-        $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=6)*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
-        $rep=$bdd->query($winrate);
-        $ligne = $rep ->fetch();
-        echo "<p>WinRate : ".round($ligne['winrate'],2)."%</br></p></div>";
-
-        echo "<h3>Specialization : </h3>";
+        echo "<h3>Specialization</h3>";
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=6";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
@@ -129,26 +147,15 @@
             echo imgs($spe2)."<div class='spe'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".round(winrS($spe,$nbj),2)."% </p>";
             echo matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
+
         echo"</div>";
 
-        echo "<div id='v2'><h2>2v2 :</h2>";
+        echo "<div id='v2'><h2>2v2</h2>";
+        $nbj=4;
+        echo "<div><p>".win($nbj).lose($nbj)."</p>";
+        echo winrate($nbj)."</div>";
 
-        $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
-        $rep=$bdd->query($wins);
-        $ligne = $rep ->fetch();
-        echo "<div><p>".$ligne['win']." Win ";
-
-        $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
-        $rep=$bdd->query($loses);
-        $ligne = $rep ->fetch();
-        echo $ligne['loses']." Lose </br></p>";
-
-        $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=4)*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
-        $rep=$bdd->query($winrate);
-        $ligne = $rep ->fetch();
-        echo "<p>WinRate : ".round($ligne['winrate'],2)."%</br></p></div>";
-
-        echo "<h3>Specialization : </h3>";
+        echo "<h3>Specialization</h3>";
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=4";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
