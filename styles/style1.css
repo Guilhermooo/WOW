@@ -6,7 +6,7 @@ html {
 #global {
 	border-width: 3px;
 	border-style: solid;
-	border-color: brown;
+	border-color: black;
 	background-color: #D2B48C;
 	width: 1000px;
 	padding-top: 100px;
@@ -48,11 +48,6 @@ body {
 #text{
 	margin-right: 50px;
 	text-align: right;
-}
-
-.spe li {
-	list-style-type: NONE;
-	display : inline-block;
 }
 
 .imgs{
