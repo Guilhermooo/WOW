@@ -6,6 +6,7 @@
 
         <meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="styles\style1.css"type="text/css" media="screen" />
+        <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript"src="script.js"></script>
 
         <title>WoW Arena</title>
@@ -66,7 +67,8 @@
             function imgs($spe){
                 $img="";
                 if ($spe=="Beast Mastery") {
-                    $img="<img class='imgs'src='images/BeatMastery.png'/>";
+                    $spe="BeatMastery";
+                    $img="<img class='imgs'src='images/".$spe.".png'/>";
                 }else{
                     $img="<img class='imgs'src='images/".$spe.".png'/>";
                 }
@@ -76,7 +78,7 @@
             function matchup($class,$spe,$nbj){
                 $bdd = getBD();
                 $idu=$_SESSION['utilisateur'][1];
-                echo "<h3>Toughest Matchups</h3><ul>";
+                echo "<ul class='mu'>";
                 for($i=0;$i<count($class);$i++){
                     $spe2=$class[$i];
                     $nbp="select count(victory) as nbg from import WHERE isRated=1 and playersNumber=$nbj and ennemyComp LIKE '%$spe2%'and idUser=$idu and specialization='$spe'";
@@ -87,8 +89,8 @@
                         $rep6=$bdd->query($c1);
                         $ligne6 = $rep6 ->fetch();
                         if($ligne6['winrate']<=50){
-                            echo "<li>".imgs($spe2)."</li>";
-                            echo "<li class='cont'>".$spe2." : ".round($ligne6['winrate'],2)."%</li>";
+                            echo "<li class='limg img".$spe2."'>".imgs($spe2)."</li>";
+                            echo "<li class='cont ".$spe2."'>".$spe2." : ".round($ligne6['winrate'],2)."%</li>";
                         }
                         
                     }
@@ -108,7 +110,24 @@
 			#v3 {
                 display: None;
             }
+            .cont{
+                display : none;
+            }
+            .limg{
+                display : inline-block;
+                margin:5px;
+            }
+            .mu{
+                list-style-type: none;
+                padding-left: 0;
+            }
+            li{
+                display: inline-block;
+            }
 
+            .imgs~.imgs{
+                margin-top: 60px;
+            }
             
 
 		</style>
@@ -144,10 +163,10 @@
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=6;
-            echo imgs($spe2)."<div class='spe'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".round(winrS($spe,$nbj),2)."% </p>";
+            echo imgs($spe2)."<div class='spe'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate: ".round(winrS($spe,$nbj),2)."% </p>";
+            echo "<h3>Toughest Matchups</h3>";
             echo matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
-
         echo"</div>";
 
         echo "<div id='v2'><h2>2v2</h2>";
@@ -162,7 +181,8 @@
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=4;
-            echo imgs($spe2)."<div class='spe'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate :".round(winrS($spe,$nbj),2)."% </p>";
+            echo imgs($spe2)."<div class='spe'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate: ".round(winrS($spe,$nbj),2)."% </p>";
+            echo"<h3>Toughest Matchups</h3>";
             echo matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
         echo"</div>";
