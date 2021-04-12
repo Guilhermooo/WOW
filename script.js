@@ -20,7 +20,27 @@ function v3(){
 
 }
 
+var spe=["Unholy","Havoc","Feral","Balance","BeastMastery","Survival","Marksmanship","Fire","Arcane","Frost","Windwalker","Retribution","Shadow","Assassination","Subtlety","Elemental","Enhancement","Affliction","Destruction","Arms"];
 $(document).ready(function() {
+	for(var i=0;i<spe.length;i++){
+		$(".im"+spe[i]).click(function(){
+			console.log(".im"+spe[i]);
+			$(".spe").css("display","none");
+			$(".div"+spe[i]).toggle();
+		});
+	}
+
+	$(".imFire").click(function(){
+			console.log(".imFire");
+			$(".spe").css("display","none");
+			$(".divFire").toggle();
+	});
+	$(".imFrost").click(function(){
+			console.log(".imFrost");
+			$(".spe").css("display","none");
+			$(".divFrost").toggle();
+	});
+
 	$(".imgUnholy").click(function(){
 		$(".cont").css("display","none");
 		$(".Unholy").toggle();
