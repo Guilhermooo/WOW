@@ -23,7 +23,7 @@
 			<p>Username :<input type="text" name="u" value="<?php echo $_GET['u'];?>"/></p>
 			<p>Password :<input type="password" name="mdp1" value=""/></p>
 			<p>Confirm your password :<input type="password" name="mdp2" value=""/></p>
-			<p><input type="submit" value="Envoyer"></p>
+			<p><input type="submit" value="Submit"></p>
 		</form>
 		
 		<a href="index.php" class="bou">
