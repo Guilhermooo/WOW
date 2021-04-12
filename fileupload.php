@@ -14,10 +14,11 @@
 	
 		<div id="header">
 		<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
+		<h1 class="index">WoW Arena</h1>
 		</div>
 		
 		<div id="global">
-		<h1 class="index">WoW Arena</h1>
+		
 	
 		<?php
 		include ("bd.php");

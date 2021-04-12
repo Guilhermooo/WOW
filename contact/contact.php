@@ -10,7 +10,8 @@
 		
 	<body>
 		<div id="header">
-			<a href="index.php"><img id="logo" src=../images/logoW.png alt="WoW Arena"></a>
+			<a href="../index.php"><img id="logo" src=../images/logoW.png alt="WoW Arena"></a>
+			<h1 class="title">WoW Arena</h1>
 	
 		<div id="text">
 		
@@ -30,7 +31,7 @@
 		</div>
 		
 	<div id="global">
-		<h1 class="title">WoW Arena</h1>
+		
 				
 		<p class="contact"> Here are the directions to contact us if you need help : </p>
 		
