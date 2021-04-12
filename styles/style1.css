@@ -113,6 +113,9 @@ body {
 	text-align: center;
 	font-size: 50px;
 }
+#title{
+	position: relative;
+}
 
 .contact {
 	border-width: 2px;
