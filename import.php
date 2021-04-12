@@ -22,7 +22,7 @@
 
 			<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
 			<p> Import your csv <input type="file" name="monfichier" /></p>
-			<p><input type="submit" /></p>
+			<p><input type="submit" value="Submit"/></p>
 		</form>
 
 		<img src=images/TutoImport1.png alt="Tuto" width="700">
