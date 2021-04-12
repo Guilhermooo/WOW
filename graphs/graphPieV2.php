@@ -22,22 +22,25 @@ $data = array($ligne['win'],$ligne2['loses']);
 $graph = new PieGraph(230,230);
 
 
+
 $graph->SetColor('#D2B48C'); 
 $theme_class="DefaultTheme";
 //$graph->SetTheme(new $theme_class());
+
+
 
 // Set A title for the plot
 $graph->SetBox(true);
 
 // Create
 $p1 = new PiePlot($data);
+$p1->value->SetColor('black');
 $graph->Add($p1);
 
 
 
 
 $p1->SetSliceColors(array('#2E8B57','#B22222'));
-$graph->SetBackgroundGradient($aFrom='navy',$aTo='silver',$aGradType=2,$aStyle=BGRAD_FRAME);
 $graph->Stroke();
 
 ?>
