@@ -9,7 +9,7 @@ $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 an
         $rep=$bdd->query($wins);
         $ligne = $rep ->fetch();
 
-        $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=6 and idUser=".$_SESSION['utilisateur'][1];
+        $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=4 and idUser=".$_SESSION['utilisateur'][1];
         $rep=$bdd->query($loses);
         $ligne2 = $rep ->fetch();
    
