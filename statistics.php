@@ -195,7 +195,6 @@
         echo "<div><p>".win($nbj).lose($nbj)."</p>";
         echo winrate($nbj)."</div>";
         echo "<img class='graph'src='graphs/graphPiev2.php'/>";
-
         echo "<h3>Specialization</h3>";
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=4";
         $rep = $bdd->query($spe);
@@ -203,7 +202,14 @@
             $spe="'".$ligne['specialization']."'";
             $spe2=$ligne['specialization'];
             $nbj=4;
-            echo imgs($spe2)."<div class='spe div".$spe2."'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate: ".round(winrS($spe,$nbj),2)."% </p>";
+            $img="";
+            if ($spe=="Beast Mastery") {
+                $spe="BeastMastery";
+                echo"<img class='imgs im".$spe2."'src='images/".$spe2.".png'/>";
+            }else{
+                echo"<img class='imgs im".$spe2."'src='images/".$spe2.".png'/>";
+            }
+            echo "<div class='spe div".$spe2."'><p>".ws($spe,$nbj)." Win / ".ls($spe,$nbj)." Lose</p>"."<p>Winrate: ".round(winrS($spe,$nbj),2)."% </p>";
             echo"<h3>Toughest Matchups</h3>";
             echo matchup($class,$spe2,$nbj)."</div>";
         }$rep ->closeCursor();
