@@ -25,11 +25,11 @@
 			<p><input type="submit" /></p>
 		</form>
 
-		<img src=images/TutoImport1.png alt="Tuto" width="500">
-		<img src=images/TutoImport2.png alt="Tuto" width="500">
-		<img src=images/TutoImport3.png alt="Tuto" width="500">
-		<img src=images/TutoImport4.png alt="Tuto" width="500">
-	</br>
+		<img src=images/TutoImport1.png alt="Tuto" width="700">
+		<img src=images/TutoImport2.png alt="Tuto" width="700">
+		<img src=images/TutoImport3.png alt="Tuto" width="700">
+		<img src=images/TutoImport4.png alt="Tuto" width="700">
+		</br>
 		<a href="index.php" class="bou">
 		Return
 		</a> 
