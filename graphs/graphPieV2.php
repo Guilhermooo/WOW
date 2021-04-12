@@ -27,7 +27,6 @@ $theme_class="DefaultTheme";
 //$graph->SetTheme(new $theme_class());
 
 // Set A title for the plot
-$graph->title->Set("Winrate");
 $graph->SetBox(true);
 
 // Create
