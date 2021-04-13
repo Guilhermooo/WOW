@@ -32,11 +32,7 @@
 		<img src=images/TutoImport2.png alt="Tuto" width="700">
 		<img src=images/TutoImport3.png alt="Tuto" width="700">
 		<img src=images/TutoImport4.png alt="Tuto" width="700">
-		</br>
-		<a href="index.php" class="bou">
-		Return
-		</a> 
-		
+		</br>		
 		<p> <br /> </p>
 		</div>
 		
