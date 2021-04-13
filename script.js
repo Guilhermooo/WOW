@@ -12,12 +12,9 @@ function v3(){
 $(document).ready(function() {	
 	$(".imgs").click(function(){
 			$(this).next().toggle();
-			
-			
-
 	});
+	
 	$(".limg").click(function(){
-			
 			$(this).next().toggle();
 	});
 
