@@ -77,6 +77,7 @@
 
             function matchup($class,$spe,$nbj){
                 $bdd = getBD();
+                $nb=0;
                 $idu=$_SESSION['utilisateur'][1];
                 echo "<ul class='mu'>";
                 for($i=0;$i<count($class);$i++){
@@ -89,16 +90,17 @@
                         $rep6=$bdd->query($c1);
                         $ligne6 = $rep6 ->fetch();
                         if($ligne6['winrate']<=50){
+                            $nb+=1;
                             echo "<li class='limg img".$spe2."'>".imgs($spe2)."</li>";
                             echo "<div class=' contdivspe'><li class='cont ".$spe2." part1'>Winrate against ".$spe2." : ".round($ligne6['winrate'],2)."%</li>";
                             echo "<li class='cont ".$spe2." part2'>".tips($spe2)."</li></div>";
                         }
-                        if($ligne6['winrate']==0){
-                            echo "<li>No Toughest Matchups</li>";
-                        }
                         
                     }
                     
+                }
+                if($nb==0){
+                    echo "<li>No Matchup under 50% winrate found !</li>";
                 }
                 echo "</ul>";
             }
@@ -304,7 +306,9 @@
             input{
                 cursor: pointer;
             }
-            
+            .nomu{
+                display: none;
+            }
 
 		</style>
 
