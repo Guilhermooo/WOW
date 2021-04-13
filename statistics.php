@@ -93,6 +93,9 @@
                             echo "<div class=' contdivspe'><li class='cont ".$spe2." part1'>Winrate against ".$spe2." : ".round($ligne6['winrate'],2)."%</li>";
                             echo "<li class='cont ".$spe2." part2'>".tips($spe2)."</li></div>";
                         }
+                        if($ligne6['winrate']==0){
+                            echo "<li>No Toughest Matchups</li>";
+                        }
                         
                     }
                     
@@ -266,10 +269,10 @@
                 padding-left: 0;
             }
             
-
-            .imgs~.imgs{
-                
+            ul{
+                list-style-type: none;
             }
+            
             .spe{
                 display: none;
 
@@ -286,17 +289,21 @@
                 font-weight: bold;
                 color: #212F3C;
             }
-            h3~.imgs{
-                
-            }
+            
             .contdivspe{
                 display: none;
             }
             .imgs{
                 display: table-cell;
                 margin:0 auto;
+                cursor: pointer;
             }
-
+            button{
+                cursor: pointer;
+            }
+            input{
+                cursor: pointer;
+            }
             
 
 		</style>
