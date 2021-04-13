@@ -22,14 +22,14 @@
 			$mdp=$_POST['mdp'];
 			$user=$_POST['user'];
 			$sql="select password from user where username='$user'";
-			$sql2="select username from user where password='$mdp'";
 			$sqlidC="Select idUser from user where username='$user'";
 			$rep=$bdd->query($sql);
 			$ligne= $rep ->fetch();
-			$rep2=$bdd->query($sql2);
-			$ligne2= $rep2 ->fetch();
 			$rep3=$bdd->query($sqlidC);
 			$ligne3 = $rep3 ->fetch();
+			$sql2="select username from user where idUser=".$ligne3['idUser'];
+			$rep2=$bdd->query($sql2);
+			$ligne2= $rep2 ->fetch();
 
 			if($_POST['mdp']==""||$_POST['user']==""){
 				echo "Username or Password empty"?>
