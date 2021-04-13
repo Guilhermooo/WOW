@@ -21,9 +21,12 @@
 		<form enctype="multipart/form-data" action="fileupload.php" method="post">
 
 			<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-			<p> Import your csv <input type="file" name="monfichier" /></p>
+			<p> Import your .txt <input type="file" name="monfichier" /></p>
 			<p><input type="submit" value="Submit"/></p>
 		</form>
+
+		<h4 class="import">Important note : </h4>
+			<p class="import">You must have downloaded the latest version of the addon "Reflex" to import your data</p>
 
 		<img src=images/TutoImport1.png alt="Tuto" width="700">
 		<img src=images/TutoImport2.png alt="Tuto" width="700">
