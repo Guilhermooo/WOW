@@ -8,12 +8,16 @@ function v3(){
 	$("#v2").css("display","none");
 }
 
+
 $(document).ready(function() {	
 	$(".imgs").click(function(){
 			$(this).next().toggle();
+			
+			
+
 	});
 	$(".limg").click(function(){
-			$(".contdivspe").css("display","none");
+			
 			$(this).next().toggle();
 	});
 
