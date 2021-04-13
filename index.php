@@ -23,7 +23,7 @@
 		
 		<h3 class="bouton">
 		<?php if(isset($_SESSION['utilisateur'])){
-			echo "Welcome ". $_SESSION['utilisateur'][0]."";?> </h3>
+			echo "Welcome ". $_SESSION['utilisateur'][0].$_SESSION['utilisateur'][1]."";?> </h3>
 			<h2 class="b"> •<a href="deconnexion.php" class="bouton">Log Out</a>
 			•<a href="import.php" class="bouton">Import</a>
 			•<a href="statistics.php" class="bouton">Statistics</a></h2>
@@ -42,11 +42,10 @@
 			<p class="intro"> 
 				Welcome to our WoW Arena website, here you can import your players versus players game history from the addon Reflex and analyse your results. </p>
 				<p class="explications"> See what hold you back from getting your dream rating and optimize your gameplay with our advices on how to counter each class specialization.</p>
-				<p class="explications"> Get defined statistics from your games to track your performances with your winrate, rating earned or loss and the compositions your are losing against.</p>
-				<p class="explications"> Those statistics can be sorted the number of games you wish, your specialization and 2v2 or 3v3.</p>
+				<p class="explications"> Those statistics can be sorted by your specialization and 2v2 or 3v3.</p>
 
 			<h4 class="import">How to import : </h4>
-			<p class="import"> After loging in, you may follow our tutorial on how to import your game history and analyse your results.</p>
+			<p class="import"> You may follow our tutorial on how to import your game history <a href="import.php" class="bou">here</a>.</p>
 
 		<p><a href="contact/contact.php"  class="bou">Contact us</a></p>
 
