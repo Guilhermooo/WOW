@@ -90,7 +90,7 @@
                         $ligne6 = $rep6 ->fetch();
                         if($ligne6['winrate']<=50){
                             echo "<li class='limg img".$spe2."'>".imgs($spe2)."</li>";
-                            echo "<div class=' contdivspe'><li class='cont ".$spe2." part1'>".$spe2." : ".round($ligne6['winrate'],2)."%</li>";
+                            echo "<div class=' contdivspe'><li class='cont ".$spe2." part1'>Winrate against ".$spe2." : ".round($ligne6['winrate'],2)."%</li>";
                             echo "<li class='cont ".$spe2." part2'>".tips($spe2)."</li></div>";
                         }
                         
@@ -208,14 +208,14 @@
                 }
                 if($spe=="Elemental"){
                     return "<div><ul>
-                                <li>Elemental has a big burst potential with his spell 'Stormkeeper' so you should try to kick it when he casts it, or to use a defensive CD.</li>
+                                <li>Elemental has a big burst potential with his spell <a href='https://www.wowhead.com/spell=191634/stormkeeper' target='_blank'>Stormkeeper</a> so you should try to kick it when he casts it, or to use a defensive CD.</li>
                                 <li>Elemental has low healing potential so you should not really worry about his heals.</li>
                                 <li>Shamans have only one defensive CD every 1min30 so that makes them an easy target.</li>
                             </ul></div>";
                 }
                 if($spe=="Enhancement"){
                     return "<div><ul>
-                                <li>Enhancement has an insane burst potential that should be mitigated by a strong defensive CD, .</li>
+                                <li>Enhancement has an insane burst potential that should be mitigated by a strong defensive CD.</li>
                                 <li>Enhancement has a lot of self healing potential so try to stun him if you are focusing him.</li>
                                 <li>Shamans have only one defensive CD every 1min30 so that makes them an easy target.</li>
                             </ul></div>";
@@ -308,6 +308,20 @@
 		<div id="header">
 			<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
 			<h1 class="title">WoW Arena</h1>
+            <div id="text">
+        
+        <h3 class="bouton">
+        <?php if(isset($_SESSION['utilisateur'])){
+            echo "Welcome ". $_SESSION['utilisateur'][0];?> </h3>
+            <h2 class="b"> •<a href="deconnexion.php" class="bouton">Log Out</a>
+            •<a href="import.php" class="bouton">Import</a>
+            •<a href="statistics.php" class="bouton">Statistics</a></h2>
+        <?php }else{?>
+            <h2 class="b"> •<a href="inscription.php" class="bouton">Sign Up</a>
+            •<a href="connexion.php" class="bouton">Log In</a> </h2>
+            <?php } ?>
+        
+        </div>
 		</div>
 		
 		<div id="global">
