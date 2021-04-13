@@ -23,7 +23,7 @@
 		
 		<h3 class="bouton">
 		<?php if(isset($_SESSION['utilisateur'])){
-			echo "Welcome ". $_SESSION['utilisateur'][0].$_SESSION['utilisateur'][1]."";?> </h3>
+			echo "Welcome ". $_SESSION['utilisateur'][0];?> </h3>
 			<h2 class="b"> •<a href="deconnexion.php" class="bouton">Log Out</a>
 			•<a href="import.php" class="bouton">Import</a>
 			•<a href="statistics.php" class="bouton">Statistics</a></h2>
