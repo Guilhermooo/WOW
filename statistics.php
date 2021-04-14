@@ -16,6 +16,7 @@
             include ("bd.php");
             $bdd = getBD();
 
+            //retourne le nombre de victoire global
             function win($nbj){
                 $bdd = getBD();
                 $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and idUser=".$_SESSION['utilisateur'][1];
@@ -24,6 +25,7 @@
                 return $ligne['win']." <span class='wins'>Wins</span> ";
             }
            
+           //retourne le nombre de défaite global
            function lose($nbj){
                 $bdd = getBD();
                 $loses="select count(victory) as loses from import WHERE isRated=1 and victory=0 and playersNumber=$nbj and idUser=".$_SESSION['utilisateur'][1];
@@ -32,6 +34,7 @@
                 return $ligne['loses']." <span class='loses'>Loses</span> ";
            }
 
+           //retourne le % de victoire global
            function winrate($nbj){
                 $bdd = getBD();
                 $winrate="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=$nbj and idUser=".$_SESSION['utilisateur'][1].")*100 as winrate from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and idUser=".$_SESSION['utilisateur'][1];
@@ -40,6 +43,7 @@
                 return "<p>WinRate : ".round($ligne['winrate'],2)."%</p>";
            }
 
+           //retourne le % de victoire en fonction de la spécialisation
             function winrS($spe,$nbj){
                 $bdd = getBD();
                 $sql2="select count(victory)/(select count(victory) from import WHERE isRated=1 and playersNumber=$nbj and specialization=".$spe."and idUser=".$_SESSION['utilisateur'][1].")*100 as winrS from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and specialization=".$spe."and idUser=".$_SESSION['utilisateur'][1];
@@ -48,6 +52,7 @@
                 return $ligne2['winrS'];
             }
 
+            //retourne le nombre de victoire en fonction de la spécialisation
             function ws($spe,$nbj){
                 $bdd = getBD();
                 $wins="select count(victory) as win from import WHERE victory=1 and isRated=1 and playersNumber=$nbj and specialization=".$spe."and idUser=".$_SESSION['utilisateur'][1];
@@ -56,6 +61,7 @@
                 return $ligne3['win'];
             }
 
+            //retourne le nombre de défaite en fonction de la spécialisation
             function ls($spe,$nbj){
                 $bdd = getBD();
                 $wins="select count(victory) as lose from import WHERE victory=0 and isRated=1 and playersNumber=$nbj and specialization=".$spe."and idUser=".$_SESSION['utilisateur'][1];
@@ -64,6 +70,7 @@
                 return $ligne4['lose'];
             }
 
+            //retourne une image en fonction de la spécialisation
             function imgs($spe){
                 $img="";
                 if ($spe=="Beast Mastery") {
@@ -75,6 +82,7 @@
                 return $img;
             }
 
+            //affiche les matchups ayant un winrate<50% en fonction de la spécialisation 
             function matchup($class,$spe,$nbj){
                 $bdd = getBD();
                 $nb=0;
@@ -105,6 +113,7 @@
                 echo "</ul>";
             }
 
+            //retourne des conseils en fonction des matchups
             function tips($spe){
                 if($spe=="Unholy"){
                     return "<div><ul>
@@ -351,11 +360,12 @@
 
     <body>
 		
+        <!-- Bandeau -->
 		<div id="header">
 			<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
 			<h1 class="title">WoW Arena</h1>
             <div id="text">
-        
+
         <h3 class="bouton">
         <?php if(isset($_SESSION['utilisateur'])){
             echo "Welcome ". $_SESSION['utilisateur'][0];?> </h3>
@@ -380,12 +390,14 @@
 
         $class=array("Unholy","Havoc","Feral","Balance","BeastMastery","Survival","Marksmanship","Fire","Arcane","Frost","Windwalker","Retribution","Shadow","Assassination","Subtlety","Elemental","Enhancement","Affliction","Destruction","Arms");
 
+        //Partie 3v3
         echo "<div id='v3'><h2>3v3</h2>";
-        $nbj=6;
+        $nbj=6; // nombre de joueur dans l'arène
         echo "<div><p>".win($nbj).lose($nbj)."</p>";
         echo winrate($nbj);
         echo "<img class='graph'src='graphs/graphPiev3.php'/></div>";
         echo "<div class='specia'><h3>Specialization</h3>";
+        //Retourne les spécialisations du joueur en 3v3
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=6";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
@@ -405,12 +417,14 @@
         }$rep ->closeCursor();
         echo"</div></div>";
 
+        //Partie 2v2
         echo "<div id='v2'><h2>2v2</h2>";
-        $nbj=4;
+        $nbj=4; // nombre de joueur dans l'arène
         echo "<div><p>".win($nbj).lose($nbj)."</p>";
         echo winrate($nbj);
         echo "<img class='graph'src='graphs/graphPiev2.php'/></div>";
         echo "<div class='specia'><h3>Specialization</h3>";
+        //Retourne les spécialisations du joueur en 2v2
         $spe="select DISTINCT specialization from import where idUser=".$_SESSION['utilisateur'][1]." and isRated=1 and playersNumber=4";
         $rep = $bdd->query($spe);
         while ($ligne = $rep ->fetch()) {
