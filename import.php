@@ -31,6 +31,7 @@
 		</div>
 		
 		<div id="global">
+		<?php if(isset($_SESSION['utilisateur'])){?>
 		<h1 class="index"><u> Import : </u></h1>
 
 		<form enctype="multipart/form-data" action="fileupload.php" method="post">
@@ -39,7 +40,7 @@
 			<p> Import your .txt <input type="file" name="monfichier" /></p>
 			<p><input type="submit" value="Submit"/></p>
 		</form>
-
+	<?php } ?>
 		<h4 class="import">Important note : </h4>
 			<p class="import">You must have downloaded the latest version of the addon "Reflex" to import your data</p>
 
