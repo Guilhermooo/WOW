@@ -16,6 +16,7 @@
 			$bdd = getBD();
 		?>
 	<body>
+	
 		<div id="header">
 			<a href="index.php"><img id="logo" src=images/logoW.png alt="WoW Arena"></a>
 		<h1 class="title">WoW Arena</h1>
@@ -44,10 +45,11 @@
 				<p class="explications"> See what hold you back from getting your dream rating and optimize your gameplay with our advices on how to counter each class specialization.</p>
 				<p class="explications"> Those statistics can be sorted by your specialization and 2v2 or 3v3.</p>
 
-			<h4 class="import">How to import : </h4>
+			<h4 class="import"><u> How to import : </u></h4>
 			<p class="import"> You may follow our tutorial on how to import your game history <a href="import.php" class="bou">here</a>.</p>
+			<p class="import"> You can leave a comment below the tutorial and see them <a href="contact/commentary.php" class="bou">here</a>.</p> <br />
 
-		<p><a href="contact/contact.php"  class="bou">Contact us</a></p>
+		<p><a href="contact/contact.php" class="bou">Contact us</a></p>
 
 		</div>
 	</body>

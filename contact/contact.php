@@ -11,8 +11,8 @@
 	<body>
 		<div id="header">
 			<a href="../index.php"><img id="logo" src=../images/logoW.png alt="WoW Arena"></a>
-			<h1 class="title">WoW Arena</h1>
-	
+		<h1 class="title">WoW Arena</h1>
+
 		<div id="text">
 		
 		<h3 class="bouton">
@@ -31,7 +31,6 @@
 		</div>
 		
 	<div id="global">
-		
 				
 		<p class="contact"> Here are the directions to contact us if you need help : </p>
 		
@@ -46,9 +45,9 @@
 		
 		<p class="contact"> Do not hesitate to make suggestions in order to improve our site. </p>
 		
-		<p> <em> Thank you for your visit </em> </p>
+		<p class="contact"> <em> Thank you for your visit </em> </p>
 		
-		<p class="bouton"> <a href="../index.php" class="bou"> Return </a> </p>
+		<p> <a href="../index.php" class="bou"> Return </a> </p>
 		
 		</div>
 	</body>

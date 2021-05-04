@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html>
+
+	<head>
+
+		<meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="../styles/style1.css"type="text/css" media="screen" />
+		<title>WoW Arena</title>
+		
+	</head>
+
+		<?php
+			include ("../bd.php");
+			$bdd = getBD();
+		?>
+	<body>
+		<div id="header">
+			<a href="../index.php"><img id="logo" src=../images/logoW.png alt="WoW Arena"></a>
+		<h1 class="title">WoW Arena</h1>
+		<div id="text">
+		
+		<h3 class="bouton">
+		<?php if(isset($_SESSION['utilisateur'])){
+			echo "Welcome ". $_SESSION['utilisateur'][0];?> </h3>
+			<h2 class="b"> •<a href="../deconnexion.php" class="bouton">Log Out</a>
+			•<a href="../import.php" class="bouton">Import</a>
+			•<a href="../statistics.php" class="bouton">Statistics</a></h2>
+		<?php }else{?>
+			<h2 class="b"> •<a href="../inscription.php" class="bouton">Sign Up</a>
+			•<a href="../connexion.php" class="bouton">Log In</a> </h2>
+			<?php } ?>
+		
+		</div>
+	
+		</div>
+
+	<div id="global">
+	
+	
+			<p><a href="contact.php" class="bou">Contact us</a></p>
+
+		</div>
+	</body>
+
+</html>
