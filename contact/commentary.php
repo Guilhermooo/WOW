@@ -9,12 +9,16 @@
 		<title>WoW Arena</title>
 		
 	</head>
+		<!-------------------------------------- Bd -------------------------------------->
 
 		<?php
 			include ("../bd.php");
 			$bdd = getBD();
 		?>
+		
 	<body>
+		<!-------------------------------------- Bandeau -------------------------------------->
+
 		<div id="header">
 			<a href="../index.php"><img id="logo" src=../images/logoW.png alt="WoW Arena"></a>
 		<h1 class="title">WoW Arena</h1>
@@ -32,13 +36,14 @@
 			<?php } ?>
 		
 		</div>
-	
 		</div>
 
 	<div id="global">
 	
-	
-			<p><a href="contact.php" class="bou">Contact us</a></p>
+		<!-------------------------------------- Commentaires -------------------------------------->
+
+		
+		<p><a href="contact.php" class="bou">Contact us</a></p>
 
 		</div>
 	</body>
