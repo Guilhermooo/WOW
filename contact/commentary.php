@@ -9,13 +9,7 @@
 		<title>WoW Arena</title>
 		
 	</head>
-		<!-------------------------------------- Bd -------------------------------------->
 
-		<?php
-			include ("../bd.php");
-			$bdd = getBD();
-		?>
-		
 	<body>
 		<!-------------------------------------- Bandeau -------------------------------------->
 
@@ -38,11 +32,29 @@
 		</div>
 		</div>
 
-	<div id="global">
-	
 		<!-------------------------------------- Commentaires -------------------------------------->
-
+		<div id="global">
 		
+		<h2 class="intro"> <u> Commentary : </u> </h2>
+		
+		<p class="explications"> 
+		
+		<?php
+            $num_id = $_GET['num_id'];
+            include ("../bd.php");
+            $bdd = getBD();
+
+            $rep = $bdd->query('SELECT * FROM comment');
+
+            while($ligne = $rep -> fetch ()){
+				echo "<li>" .$ligne['commenta'].' '. '<br />'.'<br />' ."</li>"; 
+            } 
+            $rep -> closeCursor();
+		?>
+		</p>
+	
+		<br />
+			
 		<p><a href="contact.php" class="bou">Contact us</a></p>
 
 		</div>

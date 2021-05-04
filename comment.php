@@ -9,21 +9,20 @@
 
 		<?php
 
-
-			function comment(String $comment){
+			function comment(String $commenta){
             	include ("bd.php");
            		$bdd = getBD();
-           		$sql="insert into comment (comment) values ('$comment')";
+           		$sql="insert into comment (commenta) values ('$commenta')";
             	$bdd->query($sql);
             	
 			}
 		
 		if($_POST['c']!="Give your opinion (200 characters max)" && strlen($_POST['c']) > 3) { 
-
-				$comment=$_POST['c'];
-				comment($comment);
 				
+				$commenta=$_POST['c'];
+				comment($commenta);
 		?>
+
 				<meta http-equiv="refresh" content="0; URL=import.php">
 				<script> alert("The Commentary was added ! ") </script>
 
@@ -36,8 +35,9 @@
 			<?php }?>
 
 	</head>
+	
+	
 	<body>
-		
 	</body>
 
 </html>
