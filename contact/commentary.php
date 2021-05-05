@@ -6,6 +6,7 @@
 
 		<meta http-equiv="Content-Type"content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../styles/style1.css"type="text/css" media="screen" />
+		<style>.red{color:red;}</style>
 		<title>WoW Arena</title>
 		
 	</head>
@@ -37,8 +38,8 @@
 		
 		<h2 class="intro"> <u> Commentary : </u> </h2>
 		
-		<p class="explications"> 
-		
+		<div class="red">
+		<p>
 		<?php
             $num_id = $_GET['num_id'];
             include ("../bd.php");
@@ -47,13 +48,13 @@
             $rep = $bdd->query('SELECT * FROM comment');
 
             while($ligne = $rep -> fetch ()){
-				echo "<li>" .$ligne['commenta'].' '. '<br />'.'<br />' ."</li>"; 
-            } 
+				echo "<li>".$ligne['commenta'].' '. '<br />'.'<br />'."</li>";
+
+			} 
             $rep -> closeCursor();
 		?>
 		</p>
-	
-		<br />
+		</div>
 			
 		<p><a href="contact.php" class="bou">Contact us</a></p>
 
